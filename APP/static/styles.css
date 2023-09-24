@@ -42,9 +42,14 @@ body {
       padding: 10px;
     }
   }
-  .chat-container {
-    background-color: blue;
-  }
-  chat-messages {
-    background-color: #5c00d4;
-  }
+ #chat-container {
+  background-color: blueviolet;
+ }
+
+ /* #chat-messages {
+  background-color: #00bcd4;
+ } */
+
+ #chat-form {
+  background-color: crimson;
+ }
