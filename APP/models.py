@@ -21,11 +21,11 @@ class Usuario:
         result = DatabaseConnection.fetch_one(query, params)
         if result is not None:
             return Usuario(
-                ID_usuario = Usuario.ID_usuario
-                nombre = Usuario.nombre
-                correo_electronico = Usuario.correo_electronico
-                contrasena = Usuario.contrasena
-                foto_perfil = Usuario.foto_perfil
+                ID_usuario = Usuario.ID_usuario,
+                nombre = Usuario.nombre,
+                correo_electronico = Usuario.correo_electronico,
+                contrasena = Usuario.contrasena,
+                foto_perfil = Usuario.foto_perfil,
             )
         else:
             return None
