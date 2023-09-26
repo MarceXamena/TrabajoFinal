@@ -4,3 +4,4 @@ from ..database import DatabaseConnection
 
 Chat_bp = Blueprint('Chat', __name__)
 
+Chat_bp.route('/')(ChatController.index)

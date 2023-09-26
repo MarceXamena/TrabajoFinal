@@ -6,3 +6,4 @@ class Config:
     APP_NAME = "DISGORD"
     DESCRIPTION = "Aplicación"
     VERSION = "1.0.0"
+
