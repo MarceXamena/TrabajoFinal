@@ -1,5 +1,6 @@
-drop database db_squadchat;
+drop database db_sqadchat;
 create database db_sqadchat;
+use db_sqadchat;
 
 CREATE TABLE Usuarios (
   ID_usuario INT NOT NULL AUTO_INCREMENT,
@@ -30,7 +31,7 @@ CREATE TABLE Canales (
 );
 
 CREATE TABLE Mensajes (
-  ID_mensaje INT NOT NULL AUTO_INCREMENT,equipoeventseventseventsevents
+  ID_mensaje INT NOT NULL AUTO_INCREMENT,
   contenido VARCHAR(255) NOT NULL,
   fecha_envio TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   ID_usuario INT NOT NULL,
