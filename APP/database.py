@@ -22,6 +22,8 @@ class DatabaseConnection:
         cursor.execute(query, params)
         connection.commit()
         cursor.close()
+        last_insert_id = cursor.lastrowid
+        return last_insert_id
     
     @classmethod
     def fetch_one(cls, query, params=None):

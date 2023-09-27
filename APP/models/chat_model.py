@@ -9,11 +9,11 @@ class Mensaje:
         self.ID_canal = ID_canal
         
 
-    @classmethod
-    def crear_mensaje(cls, Mensaje):
-        query = 'INSERT INTO db_sqadchat.mensajes (contenido, fecha_envio, ID_usuario, ID_canal) VALUES (%s, %s, %s, %s)'
-        params = (Mensaje.contenido, Mensaje.fecha_envio, Mensaje.ID_usuario, Mensaje.ID_canal)
-        DatabaseConnection.execute_query(query, params)
+    # @classmethod
+    # def crear_mensaje(cls, Mensaje):
+    #     query = 'INSERT INTO db_sqadchat.mensajes (contenido, fecha_envio, ID_usuario, ID_canal) VALUES (%s, %s, %s, %s)'
+    #     params = (Mensaje.contenido, Mensaje.fecha_envio, Mensaje.ID_usuario, Mensaje.ID_canal)
+    #     DatabaseConnection.execute_query(query, params)
     
     @classmethod
     def get_mensaje(Mensaje):

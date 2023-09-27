@@ -15,7 +15,8 @@ class ChatController:
         
         # Llamar al método
         Mensaje.crear_mensaje(Mensaje)
-        return {'message': mensaje.contenido}, 200
+        return Mensaje
+        # return {'message': mensaje.contenido}, 200
     
     @classmethod
     def index(cls):
@@ -24,27 +25,21 @@ class ChatController:
     
     @classmethod
     def get_chat_messages(cls):
-        query = "SELECT message FROM chat_messages"
+        query = "SELECT contenido FROM db_sqadchat.mensajes"
         result = DatabaseConnection.fetch_all(query)
         messages = [row[0] for row in result]
         return messages
     
-# @app.route('/')
-#     
-
-#     @app.route('/api/chat', methods=['POST'])
-#     def chat():
-#         message = request.json.get('message')
-#         save_message(message)
-#         return jsonify({'status': 'success'})
-
-#     def get_chat_messages():
-#         query = "SELECT message FROM chat_messages"
-#         result = DatabaseConnection.fetch_all(query)
-#         messages = [row[0] for row in result]
-#         return messages
-
-#     def save_message(message):
-#         query = "INSERT INTO chat_messages (message) VALUES (%s)"
-#         params = (message,)
-#         DatabaseConnection.execute_query(query, params)
+    @classmethod
+    def chat(cls):
+        message = request.json.get('message')
+        cls.save_message(message)
+        return jsonify({'status': 'success'})
+    
+    @classmethod
+    def save_message(cls, Mensaje):
+        query = "INSERT INTO db_sdqadchat.mensajes (contenido, fecha_envio, ID_usuario, ID_canal) VALUES (%s, %s, %s, %s)"
+        mensaje = cls.crear_mensaje(Mensaje)
+        params = (Mensaje.contenido, Mensaje.fecha_envio, Mensaje.Id_usuario, Mensaje.ID_canal)
+        id = DatabaseConnection.execute_query(query, params)
+        return id
