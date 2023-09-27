@@ -11,11 +11,15 @@ class ChatController:
         ID_canal = request.args.get('ID_canal', '')
         
 
-        mensaje = Mensaje(contenido=contenido, fecha_envio=fecha_envio, ID_usuario=ID_usuario, ID_canal=ID_canal)
+        mensaje = {
+            "contenido": contenido,
+            "fecha_envio": fecha_envio,"ID_usuario": ID_usuario,
+             "ID_canal": ID_canal
+        }
         
         # Llamar al método
         Mensaje.crear_mensaje(Mensaje)
-        return Mensaje
+        return jsonify(mensaje)
         # return {'message': mensaje.contenido}, 200
     
     @classmethod
@@ -40,7 +44,7 @@ class ChatController:
     def save_message(cls, Mensaje):
         query = "INSERT INTO db_sdqadchat.mensajes (contenido, fecha_envio, ID_usuario, ID_canal) VALUES (%s, %s, %s, %s)"
         mensaje = cls.crear_mensaje(Mensaje)
-        params = (Mensaje.contenido, Mensaje.fecha_envio, Mensaje.Id_usuario, Mensaje.ID_canal)
+        params = (mensaje.contenido, mensaje.fecha_envio, mensaje.Id_usuario, mensaje.ID_canal)
         id = DatabaseConnection.execute_query(query, params)
         return id
     
