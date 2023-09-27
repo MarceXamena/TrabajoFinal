@@ -11,7 +11,7 @@ class DatabaseConnection:
                 user = 'marcelo12',
                 port = '3306',
                 password = 'marcelo12.',
-                database = 'chat'
+                database = 'db_sqadchat'
             )
         return cls._connection
     

@@ -43,3 +43,10 @@ class ChatController:
         params = (Mensaje.contenido, Mensaje.fecha_envio, Mensaje.Id_usuario, Mensaje.ID_canal)
         id = DatabaseConnection.execute_query(query, params)
         return id
+    
+    @classmethod
+    def get_message(cls):
+        query = "SELECT contenido FROM mensajes WHERE ID_mensaje = %s"
+        result = DatabaseConnection.fetch_one(query, Mensaje.ID_mensaje)
+        mensaje = result["contenido"]
+        return mensaje

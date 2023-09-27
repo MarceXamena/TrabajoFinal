@@ -15,20 +15,20 @@ class Mensaje:
     #     params = (Mensaje.contenido, Mensaje.fecha_envio, Mensaje.ID_usuario, Mensaje.ID_canal)
     #     DatabaseConnection.execute_query(query, params)
     
-    @classmethod
-    def get_mensaje(Mensaje):
-        query = 'SELECT ID_Mensaje, contenido, fecha_envio, ID_usuario, ID_canal FROM db_sqadchat.mensajes WHERE ID_Mensaje = %s'
-        params = Mensaje.ID_Mensaje
-        result = DatabaseConnection.fetch_one(query, params)
-        if result is not None:
-            return Mensaje(
-                ID_Mensaje = Mensaje.ID_Mensaje,
-                contenido = Mensaje.contenido,
-                fecha_envio = Mensaje.fecha_envio,
-                ID_usuario = Mensaje.ID_usuario,
-                ID_canal = Mensaje.ID_canal
-            )
-        else:
-            return None
+    # @classmethod
+    # def get_mensaje(Mensaje):
+    #     query = 'SELECT ID_Mensaje, contenido, fecha_envio, ID_usuario, ID_canal FROM db_sqadchat.mensajes WHERE ID_Mensaje = %s'
+    #     params = Mensaje.ID_Mensaje
+    #     result = DatabaseConnection.fetch_one(query, params)
+    #     if result is not None:
+    #         return Mensaje(
+    #             ID_Mensaje = Mensaje.ID_Mensaje,
+    #             contenido = Mensaje.contenido,
+    #             fecha_envio = Mensaje.fecha_envio,
+    #             ID_usuario = Mensaje.ID_usuario,
+    #             ID_canal = Mensaje.ID_canal
+    #         )
+    #     else:
+    #         return None
         
         
